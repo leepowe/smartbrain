@@ -1,0 +1,90 @@
+:root {
+    /* s-ilver */
+    --color1: rgb(87, 151, 255); 
+    /* w-hite */
+    --color2: rgb(255, 121, 98);
+}
+
+.form {
+	width: 700px;
+	background-color: var(--color1);
+	background-image: radial-gradient(
+			circle at 100% 150%,
+			var(--color1) 24%,
+			var(--color2) 24%,
+			var(--color2) 28%,
+			var(--color1) 28%,
+			var(--color1) 36%,
+			var(--color2) 36%,
+			var(--color2) 40%,
+			transparent 40%,
+			transparent
+		),
+		radial-gradient(
+			circle at 0 150%,
+			var(--color1) 24%,
+			var(--color2) 24%,
+			var(--color2) 28%,
+			var(--color1) 28%,
+			var(--color1) 36%,
+			var(--color2) 36%,
+			var(--color2) 40%,
+			transparent 40%,
+			transparent
+		),
+		radial-gradient(
+			circle at 50% 100%,
+			var(--color2) 10%,
+			var(--color1) 10%,
+			var(--color1) 23%,
+			var(--color2) 23%,
+			var(--color2) 30%,
+			var(--color1) 30%,
+			var(--color1) 43%,
+			var(--color2) 43%,
+			var(--color2) 50%,
+			var(--color1) 50%,
+			var(--color1) 63%,
+			var(--color2) 63%,
+			var(--color2) 71%,
+			transparent 71%,
+			transparent
+		),
+		radial-gradient(
+			circle at 100% 50%,
+			var(--color2) 5%,
+			var(--color1) 5%,
+			var(--color1) 15%,
+			var(--color2) 15%,
+			var(--color2) 20%,
+			var(--color1) 20%,
+			var(--color1) 29%,
+			var(--color2) 29%,
+			var(--color2) 34%,
+			var(--color1) 34%,
+			var(--color1) 44%,
+			var(--color2) 44%,
+			var(--color2) 49%,
+			transparent 49%,
+			transparent
+		),
+		radial-gradient(
+			circle at 0 50%,
+			var(--color2) 5%,
+			var(--color1) 5%,
+			var(--color1) 15%,
+			var(--color2) 15%,
+			var(--color2) 20%,
+			var(--color1) 20%,
+			var(--color1) 29%,
+			var(--color2) 29%,
+			var(--color2) 34%,
+			var(--color1) 34%,
+			var(--color1) 44%,
+			var(--color2) 44%,
+			var(--color2) 49%,
+			transparent 49%,
+			transparent
+		);
+	background-size: 100px 50px;
+}
