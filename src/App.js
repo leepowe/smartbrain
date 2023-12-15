@@ -17,37 +17,51 @@ class App extends Component {
 		super();
 		this.state = {
 			input: '',
+			imageUrl: ''
 		};
 	}
 
+	onInputChange = (event) => {
+		this.setState({input: event.target.value});
+	};
+	
 	onButtonSubmit = () => {
 		this.setState({ imageUrl: this.state.input });
 
 		app.models
-			.predict('face-detection', this.state.input)
-			.then((response) => {
-				console.log('hi', response);
-				if (response) {
-					fetch('http://localhost:3000/image', {
-						method: 'put',
-						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify({
-							id: this.state.user.id,
-						}),
-					})
-						.then((response) => response.json())
-						.then((count) => {
-							this.setState(Object.assign(this.state.user, { entries: count }));
-						});
+			.predict(
+				Clarifai.FACE_DETECT_MODEL,
+				this.state.input)
+			.then(
+				function (response) {
+					console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
+				},
+				function (err) {
+					//there was an error
 				}
-				this.displayFaceBox(this.calculateFaceLocation(response));
-			})
-			.catch((err) => console.log(err));
+					
+			)
+			// .predict('face-detection', this.state.input)
+			// .then((response) => {
+			// 	console.log('hi', response);
+			// 	if (response) {
+			// 		fetch('http://localhost:3000/image', {
+			// 			method: 'put',
+			// 			headers: { 'Content-Type': 'application/json' },
+			// 			body: JSON.stringify({
+			// 				id: this.state.user.id,
+			// 			}),
+			// 		})
+			// 			.then((response) => response.json())
+			// 			.then((count) => {
+			// 				this.setState(Object.assign(this.state.user, { entries: count }));
+			// 			});
+			// 	}
+			// 	this.displayFaceBox(this.calculateFaceLocation(response));
+			// })
+			// .catch((err) => console.log(err));
 	};
 
-	onInputChange = (event) => {
-		console.log(event.target.value);
-	};
 
 	render() {
 		return (
@@ -60,7 +74,7 @@ class App extends Component {
 					onInputChange={this.onInputChange}
 					onButtonSubmit={this.onButtonSubmit}
 				/>
-				<FaceRecognition />
+				<FaceRecognition imageUrl = { this.state.imageUrl } />
 			</div>
 		);
 	}
