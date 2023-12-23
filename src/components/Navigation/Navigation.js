@@ -20,7 +20,8 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
 					className='f3 link dim black underline pa3 pointer'
 				>
 					Sign In
-				</p>
+                </p>
+                <p>|</p>
 				<p
 					onClick={() => onRouteChange('register')}
 					className='f3 link dim black underline pa3 pointer'
